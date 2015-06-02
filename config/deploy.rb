@@ -14,10 +14,10 @@ set :deploy_to, '/var/www'
 # set :format, :pretty
 
 # Default value for :log_level is :debug
-# set :log_level, :debug
+set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
 
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('.env')
@@ -34,11 +34,8 @@ set :linked_dirs, %w(media)
 namespace :deploy do
 
   after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+    on roles(:app) do
+      execute "apache2ctl", "graceful"
     end
   end
 
