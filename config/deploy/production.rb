@@ -1,3 +1,4 @@
+set :stage, :production
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -6,7 +7,7 @@
 # server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
-server "45.55.175.72:80", user: "deploy", roles: %w{web app db}
+server "45.55.175.72", user: "deploy", roles: %w{web app db}
 
 
 # role-based syntax
