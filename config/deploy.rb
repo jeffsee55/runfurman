@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:jeffsee55/runfurman.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/runfurman'
+set :deploy_to, '/var/www'
 
 # Default value for :format is :pretty
 # set :format, :pretty
@@ -27,6 +27,8 @@ set :linked_dirs, %w(media)
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+SSHKit.config.command_map[:composer] = "/usr/local/bin/composer"
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
